@@ -3,7 +3,7 @@ exports.up = function(knex) {
         .createTable('coupons', function (table) {
             table.increments('id');
             table.string('code', 20).notNullable();
-            table.string('description', 50).notNullable();
+            table.string('description', 100).notNullable();
         })
 };
 
