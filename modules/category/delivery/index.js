@@ -43,7 +43,24 @@ module.exports = (app, usecase) => {
         }
     }
 
+    const updateCategory = async (req, res) => {
+        try {
+            let name = req.body.name
+            await knex('categories').where('id', req.params.id).update({ name })        
+            res.json({ 
+                'status': 200,
+                message: 'Category has been updated'
+            })
+        } catch (err) {
+            res.json({
+                'status': 500,
+                message: err
+            })
+        }
+    }
+
     app.get('/categories', getAllCategory)
     app.get('/category/:id', getCategoryById)
     app.post('/category', createCategory)
+    app.put('/category/:id', updateCategory)
 }
