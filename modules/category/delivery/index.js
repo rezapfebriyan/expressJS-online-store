@@ -59,8 +59,24 @@ module.exports = (app, usecase) => {
         }
     }
 
+    const deleteCategory = async (req, res) => {
+        try {
+            await knex('categories').where('id', req.params.id).del()        
+            res.json({ 
+                'status': 200,
+                message: 'Category has been deleted'
+            })
+        } catch (err) {
+            res.json({
+                'status': 500,
+                message: err
+            })
+        }
+    }
+
     app.get('/categories', getAllCategory)
     app.get('/category/:id', getCategoryById)
     app.post('/category', createCategory)
     app.put('/category/:id', updateCategory)
+    app.delete('/category/:id', deleteCategory)
 }
