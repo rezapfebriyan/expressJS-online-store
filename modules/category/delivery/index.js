@@ -26,6 +26,24 @@ module.exports = (app, usecase) => {
         }
     }
 
+    const createCategory = async (req, res) => {
+        try {
+            let name = req.body.name        
+            await knex('categories').insert({ name })
+
+            res.json({ 
+                'status': 201,
+                message: 'Category has been created'
+            })
+        } catch (err) {
+            res.json({
+                'status': 500,
+                message: err
+            })
+        }
+    }
+
     app.get('/categories', getAllCategory)
     app.get('/category/:id', getCategoryById)
+    app.post('/category', createCategory)
 }
