@@ -1,2 +1,2 @@
-const newCategoriesController = require('./category/delivery')
+const { newCategoriesController } = require('./category/delivery')
 exports.newCategoriesController = newCategoriesController
