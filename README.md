@@ -1,2 +1,2 @@
 # nodejs-online-store
-*Restful API online store using express JS and MySQL*
+*Clean Architecture and DDD Restful API online store (using express JS)*
