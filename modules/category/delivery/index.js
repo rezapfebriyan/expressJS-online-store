@@ -1,8 +1,11 @@
 module.exports = (app, usecase) => {
-    const getAllCategory = async (req, res) => {
+    const getAllCategories= async(_, res) => {
         try {
-            let categories = await knex('categories');
-            res.json(categories)
+            const data = await usecase.getAllCategories()
+            res.json({
+                'status': 200,
+                data
+            })
         } catch (err) {
             res.json({
                 'status': 500,
@@ -13,27 +16,25 @@ module.exports = (app, usecase) => {
 
     const getCategoryById = async (req, res) => {
         try {
-            let categories = await knex('categories').where('id', req.params.id);
+            const data = await usecase.getCategoryById(req.params.id)
             res.json({
                 'status': 200,
-                data: categories
+                data
             })
         } catch (err) {
             res.json({
                 'status': 500,
                 message: err
             })
-        }
+        }       
     }
 
     const createCategory = async (req, res) => {
         try {
-            let name = req.body.name        
-            await knex('categories').insert({ name })
-
-            res.json({ 
-                'status': 201,
-                message: 'Category has been created'
+            let name = req.body.name
+            await usecase.createCategory(name)
+            res.status(200).json({
+                message: "success"
             })
         } catch (err) {
             res.json({
@@ -43,10 +44,11 @@ module.exports = (app, usecase) => {
         }
     }
 
-    const updateCategory = async (req, res) => {
+    const updateCategoryById = async (req, res) => {
         try {
+            let id = req.body.id
             let name = req.body.name
-            await knex('categories').where('id', req.params.id).update({ name })        
+            await usecase.updateCategory(id, name)
             res.json({ 
                 'status': 200,
                 message: 'Category has been updated'
@@ -56,12 +58,13 @@ module.exports = (app, usecase) => {
                 'status': 500,
                 message: err
             })
-        }
+        }              
     }
 
-    const deleteCategory = async (req, res) => {
+    const deleteCategoryById= async (req, res) => {
         try {
-            await knex('categories').where('id', req.params.id).del()        
+            let id = req.params.id
+            await usecase.deleteCategory(id)
             res.json({ 
                 'status': 200,
                 message: 'Category has been deleted'
@@ -74,9 +77,9 @@ module.exports = (app, usecase) => {
         }
     }
 
-    app.get('/categories', getAllCategory)
-    app.get('/category/:id', getCategoryById)
-    app.post('/category', createCategory)
-    app.put('/category/:id', updateCategory)
-    app.delete('/category/:id', deleteCategory)
+    app.get("/categories", getAllCategories)
+    app.get("/category/:id", getCategoryById)
+    app.post("/category", createCategory)
+    app.put("/category/:id", updateCategoryById)
+    app.delete("/category/:id", deleteCategoryById)
 }
