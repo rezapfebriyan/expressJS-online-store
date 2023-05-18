@@ -5,7 +5,7 @@ module.exports = (repository) => {
 
     module.createCategory = (body) => repository.createCategory(body)
 
-    module.updateCategory = (id,body) => repository.updateCategory(id, body)
+    module.updateCategory = (id, body) => repository.updateCategory(id, body)
 
     module.deleteCategory = (id) => repository.deleteCategory(id)
     

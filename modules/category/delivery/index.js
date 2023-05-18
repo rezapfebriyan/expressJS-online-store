@@ -32,9 +32,10 @@ module.exports = (app, usecase) => {
     const createCategory = async (req, res) => {
         try {
             let name = req.body.name
-            await usecase.createCategory(name)
-            res.status(200).json({
-                message: "success"
+            await usecase.createCategory({ name })
+            res.json({ 
+                'status': 201,
+                message: 'Category has been created'
             })
         } catch (err) {
             res.json({
@@ -46,9 +47,10 @@ module.exports = (app, usecase) => {
 
     const updateCategoryById = async (req, res) => {
         try {
-            let id = req.body.id
+            let id = req.params.id
             let name = req.body.name
-            await usecase.updateCategory(id, name)
+            const body = { name }
+            await usecase.updateCategory( id, body )
             res.json({ 
                 'status': 200,
                 message: 'Category has been updated'
@@ -61,7 +63,7 @@ module.exports = (app, usecase) => {
         }              
     }
 
-    const deleteCategoryById= async (req, res) => {
+    const deleteCategoryById = async (req, res) => {
         try {
             let id = req.params.id
             await usecase.deleteCategory(id)
