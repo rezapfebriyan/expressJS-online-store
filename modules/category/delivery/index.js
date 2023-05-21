@@ -1,7 +1,7 @@
 module.exports = (app, usecase) => {
     const getAllCategories = async (_, res) => {
         try {
-            const data = await usecase.getAllCategories()
+            const data = await usecase.getAllCategories() // call function in usecase
             res.json({
                 'status': 200,
                 data

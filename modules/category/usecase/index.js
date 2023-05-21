@@ -1,5 +1,5 @@
 module.exports = (repository) => {
-    module.getAllCategories = () => repository.getAllCategories()
+    module.getAllCategories = () => repository.getAllCategories() // call function in repository
 
     module.getCategoryById = (id) => repository.getCategoryById(id)
 
