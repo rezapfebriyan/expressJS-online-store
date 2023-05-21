@@ -1,5 +1,5 @@
 module.exports = (app, usecase) => {
-    const getAllCoupons= async(_, res) => {
+    const getAllCoupons = async (_, res) => {
         try {
             const data = await usecase.getAllCoupons()
             res.json({
