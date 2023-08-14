@@ -1,11 +1,11 @@
-const newCategoriesRepository = require('./category/repository')
-exports.newCategoriesRepository = newCategoriesRepository
+const categoriesRepository = require('./category/repository')
+exports.newCategoriesRepository = categoriesRepository
 
-const newCouponsRepository = require('./coupon/repository')
-exports.newCouponsRepository = newCouponsRepository
+const couponsRepository = require('./coupon/repository')
+exports.newCouponsRepository = couponsRepository
 
-const newProductsRepository = require('./product/repository')
-exports.newProductsRepository = newProductsRepository
+const productsRepository = require('./product/repository')
+exports.newProductsRepository = productsRepository
 
-const newUsersRepository = require('./user/repository')
-exports.newUsersRepository = newUsersRepository
+const usersRepository = require('./user/repository')
+exports.newUsersRepository = usersRepository

@@ -1,11 +1,11 @@
-const newCategoriesUseCase = require('./category/usecase')
-exports.newCategoriesUseCase = newCategoriesUseCase
+const categoriesUseCase = require('./category/usecase')
+exports.newCategoriesUseCase = categoriesUseCase
 
-const newCouponsUseCase = require('./coupon/usecase')
-exports.newCouponsUseCase = newCouponsUseCase
+const couponsUseCase = require('./coupon/usecase')
+exports.newCouponsUseCase = couponsUseCase
 
-const newProductsUseCase = require('./product/usecase')
-exports.newProductsUseCase = newProductsUseCase
+const productsUseCase = require('./product/usecase')
+exports.newProductsUseCase = productsUseCase
 
-const newUsersUseCase = require('./user/usecase')
-exports.newUsersUseCase = newUsersUseCase
+const usersUseCase = require('./user/usecase')
+exports.newUsersUseCase = usersUseCase

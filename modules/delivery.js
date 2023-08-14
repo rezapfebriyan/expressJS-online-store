@@ -1,11 +1,11 @@
-const newCategoriesController = require("./category/delivery");
-exports.newCategoriesController = newCategoriesController
+const categoriesController = require("./category/delivery");
+exports.newCategoriesController = categoriesController
 
-const newCouponsController = require("./coupon/delivery");
-exports.newCouponsController = newCouponsController
+const couponsController = require("./coupon/delivery");
+exports.newCouponsController = couponsController
 
-const newProductsController = require("./product/delivery");
-exports.newProductsController = newProductsController
+const productsController = require("./product/delivery");
+exports.newProductsController = productsController
 
-const newUsersController = require("./user/delivery");
-exports.newUsersController = newUsersController
+const usersController = require("./user/delivery");
+exports.newUsersController = usersController
