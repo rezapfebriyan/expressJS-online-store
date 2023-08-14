@@ -12,6 +12,9 @@ const generateJwt = payload => jwt.sign(payload, secret, {
   
 const verifyJwt = token => jwt.verify(token, secret)
 
-module.exports={
-    hashPassword, comparePassword, generateJwt, verifyJwt
+module.exports = {
+    hashPassword,
+    comparePassword,
+    generateJwt,
+    verifyJwt
 }

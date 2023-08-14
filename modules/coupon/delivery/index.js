@@ -33,7 +33,9 @@ module.exports = (app, usecase) => {
         try {
             let code = req.body.code
             let description = req.body.description
+
             await usecase.createCoupon({ code, description })
+
             res.json({ 
                 'status': 201,
                 message: 'Coupon has been created'
@@ -52,7 +54,9 @@ module.exports = (app, usecase) => {
             let code = req.body.code
             let description = req.body.description
             const body = { code, description }
+
             await usecase.updateCoupon( id, body )
+
             res.json({ 
                 'status': 200,
                 message: 'Coupon has been updated'
@@ -67,8 +71,8 @@ module.exports = (app, usecase) => {
 
     const deleteCouponById = async (req, res) => {
         try {
-            let id = req.params.id
-            await usecase.deleteCoupon(id)
+            await usecase.deleteCoupon(req.params.id)
+
             res.json({ 
                 'status': 200,
                 message: 'Coupon has been deleted'
@@ -82,8 +86,8 @@ module.exports = (app, usecase) => {
     }
 
     app.get("/coupons", getAllCoupons)
-    app.get("/coupon/:id", getCouponById)
-    app.post("/coupon", createCoupon)
-    app.put("/coupon/:id", updateCouponById)
-    app.delete("/coupon/:id", deleteCouponById)
+    app.get("/coupons/:id", getCouponById)
+    app.post("/coupons", createCoupon)
+    app.put("/coupons/:id", updateCouponById)
+    app.delete("/coupons/:id", deleteCouponById)
 }

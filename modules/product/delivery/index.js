@@ -35,7 +35,9 @@ module.exports = (app, usecase) => {
             let description = req.body.description
             let image = req.body.image
             let price = req.body.price
+
             await usecase.createProduct({ name, description, image, price })
+            
             res.json({ 
                 'status': 201,
                 message: 'Product has been created'
@@ -86,8 +88,8 @@ module.exports = (app, usecase) => {
     }
 
     app.get("/products", getAllProducts)
-    app.get("/product/:id", getProductById)
-    app.post("/product", createProduct)
-    app.put("/product/:id", updateProductById)
-    app.delete("/product/:id", deleteProductById)
+    app.get("/products/:id", getProductById)
+    app.post("/products", createProduct)
+    app.put("/products/:id", updateProductById)
+    app.delete("/products/:id", deleteProductById)
 }

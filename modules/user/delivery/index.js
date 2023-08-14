@@ -1,9 +1,10 @@
 const argon2 = require('argon2')
 
 module.exports = (app, usecase) => {
-    const getAllUsers= async(_, res) => {
+    const getAllUsers = async(_, res) => {
         try {
             const data = await usecase.getAllUsers()
+
             res.json({
                 'status': 200,
                 data
@@ -17,6 +18,7 @@ module.exports = (app, usecase) => {
     const getUserById = async (req, res) => {
         try {
             const data = await usecase.getUserById(req.params.id)
+
             res.json({
                 'status': 200,
                 data
@@ -31,7 +33,9 @@ module.exports = (app, usecase) => {
         try {
             const {name, email, password, phone} = req.body
             const hash_password = await argon2.hash(password)
+
             await usecase.createUser({ name, email, password: hash_password, phone })
+
             res.json({ 
                 'status': 201,
                 message: 'User has been created'
@@ -49,7 +53,9 @@ module.exports = (app, usecase) => {
             let email = req.body.email
             let phone = req.body.phone
             const body = { name, email, phone }
+
             await usecase.updateUser( id, body )
+
             res.json({ 
                 'status': 200,
                 message: 'User has been updated'
@@ -62,8 +68,8 @@ module.exports = (app, usecase) => {
 
     const deleteUserById = async (req, res) => {
         try {
-            let id = req.params.id
-            await usecase.deleteUser(id)
+            await usecase.deleteUser(req.params.id)
+
             res.json({ 
                 'status': 200,
                 message: 'User has been deleted'
@@ -75,8 +81,8 @@ module.exports = (app, usecase) => {
     }
 
     app.get("/users", getAllUsers)
-    app.get("/user/:id", getUserById)
-    app.post("/user", createUser)
-    app.put("/user/:id", updateUserById)
-    app.delete("/user/:id", deleteUserById)
+    app.get("/users/:id", getUserById)
+    app.post("/users", createUser)
+    app.put("/users/:id", updateUserById)
+    app.delete("/users/:id", deleteUserById)
 }
