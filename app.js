@@ -2,11 +2,6 @@ const express = require('express')
 require('dotenv').config()
 const knex = require('./knex')
 
-const auth = require('./middleware/auth')
-const { comparePassword,
-    generateJwt,
-    hashPassword }
-    = require('./utils')
 const delivery = require('./modules/delivery')
 const repository = require('./modules/repository')
 const usecase = require('./modules/usecase')
@@ -15,6 +10,10 @@ const app = express()
 const port = process.env.APP_PORT
 
 app.use(express.json())
+
+const authRepo = repository.newAuthRepository(knex)
+const authUseCase = usecase.newAuthUseCase(authRepo)
+delivery.newAuthController(app, authUseCase)
 
 const categoriesRepository = repository.newCategoriesRepository(knex) // include param knex ORM
 const categoriesUseCase = usecase.newCategoriesUseCase(categoriesRepository) // include param repository

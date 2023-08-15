@@ -1,3 +1,6 @@
+const authController = require("./auth/delivery");
+exports.newAuthController = authController
+
 const categoriesController = require("./category/delivery");
 exports.newCategoriesController = categoriesController
 
