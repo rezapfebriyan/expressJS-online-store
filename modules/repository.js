@@ -1,3 +1,6 @@
+const authRepository = require("./auth/repository")
+exports.newAuthRepository = authRepository
+
 const categoriesRepository = require('./category/repository')
 exports.newCategoriesRepository = categoriesRepository
 
