@@ -4,7 +4,7 @@ const secret = "$2b%10@IptGst5LQEfTvYNGoKoNOLK"
 
 const hashPassword = password => bcrypt.hashSync(password, secret)
 
-const comparePassword = (password, hash) => bcrypt.compareSync(password, hash)
+const comparePassword = (password, hash) => bcrypt.compare(password, hash)
 
 const generateJwt = payload => jwt.sign(payload, secret, {
   expiresIn: '1h'
