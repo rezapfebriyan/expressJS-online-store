@@ -1,3 +1,6 @@
+const authUseCase = require("./auth/usecase");
+exports.newAuthUseCase = authUseCase
+
 const categoriesUseCase = require('./category/usecase')
 exports.newCategoriesUseCase = categoriesUseCase
 
