@@ -1,14 +1,14 @@
-const authController = require("./auth/delivery");
+const authController = require("./auth/delivery")
 exports.newAuthController = authController
 
-const categoriesController = require("./category/delivery");
+const categoriesController = require("./category/delivery")
 exports.newCategoriesController = categoriesController
 
-const couponsController = require("./coupon/delivery");
+const couponsController = require("./coupon/delivery")
 exports.newCouponsController = couponsController
 
-const productsController = require("./product/delivery");
+const productsController = require("./product/delivery")
 exports.newProductsController = productsController
 
-const usersController = require("./user/delivery");
+const usersController = require("./user/delivery")
 exports.newUsersController = usersController
