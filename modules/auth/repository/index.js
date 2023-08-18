@@ -14,9 +14,6 @@ module.exports = (knex) => {
             .table(table) 
             .then(data => {
                 if (data) {
-                    console.log(data)
-                    console.log(password)
-                    console.log(data.password)
                     if (comparePassword(password, data.password)) {
                         resolve({
                             accessToken: generateJwt({
