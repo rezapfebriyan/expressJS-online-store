@@ -4,5 +4,9 @@
 
 Source: *youtube.com/daridasar*
 
-- Clone repo ini ke local computer anda.
-- karena repo ini tidak include node_modules, jalankan perintah "npm install" untuk menginstall package yang diperlukan
+### Getting Start Guide
+Clone this repo to your local computer.
+Run the command bellow to install package dependencies (get node_modules)
+```sh
+npm install
+```
