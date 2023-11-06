@@ -20,3 +20,8 @@ Run the command below to insert data to table (run seeder)
 ```sh
 npx knex seed:run
 ```
+
+Run the command bellow to start your app:
+```sh
+npm start
+```
