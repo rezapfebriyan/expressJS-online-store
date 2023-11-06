@@ -10,7 +10,13 @@ Run the command bellow to install package dependencies (get node_modules)
 ```sh
 npm install
 ```
-Rrun the command below to create a table
+
+Run the command below to migrate table
 ```sh
 npx knex migrate:latest
+```
+
+Run the command below to insert data to table (run seeder)
+```sh
+npx knex seed:run
 ```
