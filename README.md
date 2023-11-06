@@ -11,7 +11,7 @@ Run the command bellow to install package dependencies (get node_modules)
 npm install
 ```
 
-Run the command below to migrate table
+Run the command below to generate the table automatically
 ```sh
 npx knex migrate:latest
 ```
